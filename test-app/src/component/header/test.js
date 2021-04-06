@@ -16,7 +16,7 @@ describe('Header Component', () => {
     });
 
     it('Should render without errors', () => {
-        console.log(component.debug()); // 可以这样看shallow的component是啥样的
+        // console.log(component.debug()); // 可以这样看shallow的component是啥样的
         const wrapper = findByTestAttr(component, 'headerComponent'); // find by className
         expect(wrapper.length).toEqual(1);
     });

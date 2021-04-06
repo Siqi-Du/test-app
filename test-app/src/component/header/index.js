@@ -3,7 +3,7 @@ import './style.scss';
 import Logo from './../../assets/imgs/logo.png';
 
 
-// functional component, not a class(not have lifecycle functions)
+// functional component, not a class component(not have lifecycle functions)
 const Header = (props) => {
     return (
         <header data-test="headerComponent">
