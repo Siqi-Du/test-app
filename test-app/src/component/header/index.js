@@ -6,10 +6,10 @@ import Logo from './../../assets/imgs/logo.png';
 // functional component, not a class(not have lifecycle functions)
 const Header = (props) => {
     return (
-        <header>
+        <header data-test="headerComponent">
             <div className="wrap">
                 <div className="logo">
-                    <img src={Logo} alt="my logo"></img>
+                    <img data-test="logoIMG" src={Logo} alt="my logo"></img>
                 </div>
             </div>
         </header>
