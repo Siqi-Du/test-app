@@ -1,71 +1,80 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Headline from './index';
-import {findByTestAttr, checkProps} from './../../../utils/index';
 
-const setupComponent = (props={}) => {
+import { findByTestAtrr, checkProps } from '../../../Utils';
+
+const setUp = (props={}) => {
     const component = shallow(<Headline {...props} />);
     return component;
-}
-
+};
 
 describe('Headline Component', () => {
 
-    describe('Checking ProprTypes', () => {
+    describe('Checking PropTypes', () => {
 
-        it('Should not throw a warning', () => { 
-            
-            const expectedProprs = { // create props that match the protypes schema(type spec)
+        it('Should not throw a warning', () => {
+
+            const expectedProps = { // create props that meets the schema(spec)
                 header: 'Test Header',
-                desc: 'test desc',
+                desc: 'Test Desc',
                 tempArr: [{
-                    fName: "test fName",
-                    lName: "test lName",
-                    email: "test email",
-                    age: 0,
-                    status: false
+                    fName: 'Test fName',
+                    lName: 'Test lName',
+                    email: 'test@email.com',
+                    age: 23,
+                    onlineStatus: false
                 }]
             };
-            const propsErr = checkProps(Headline, expectedProprs);
+            const propsErr = checkProps(Headline, expectedProps)
             expect(propsErr).toBeUndefined();
-        })
+
+        });
+
     });
 
     describe('Have props', () => {
+
         let wrapper;
         beforeEach(() => {
-            const props = { // 自己创建props并pass给setupComponent()里的Header
-                header : 'test header',
-                desc : 'test desc'
+            const props = { // create props that passes to Headline Component that in setUP() function
+                header: 'Test Header',
+                desc: 'Test Desc'
             };
-            wrapper = setupComponent(props);
+            wrapper = setUp(props);
         });
 
-        it('Should reder without errors', () => {
-            const component = findByTestAttr(wrapper, "HeadlineComponent");
-            expect(component.length).toEqual(1);
+        it('Should render without errors', () => {
+            const component = findByTestAtrr(wrapper, 'HeadlineComponent');
+            expect(component.length).toBe(1);
         });
 
         it('Should render a H1', () => {
-            const h1 = findByTestAttr(wrapper, 'header');
+            const h1 = findByTestAtrr(wrapper, 'header');
             expect(h1.length).toBe(1);
         });
 
         it('Should render a desc', () => {
-            const desc = findByTestAttr(wrapper, 'desc');
+            const desc = findByTestAtrr(wrapper, 'desc');
             expect(desc.length).toBe(1);
-        })
+        });
+
     });
 
-    describe('Have no props', () => {
+    describe('Have NO props', () => {
+
         let wrapper;
         beforeEach(() => {
-            wrapper = setupComponent();
+            wrapper = setUp();
         });
 
         it('Should not render', () => {
-            const component = findByTestAttr(wrapper, "HeadlineComponent");
+            const component = findByTestAtrr(wrapper, 'HeadlineComponent');
             expect(component.length).toBe(0);
-        })
+        });
+
+
     });
+
+
 });

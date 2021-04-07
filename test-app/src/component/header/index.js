@@ -1,15 +1,13 @@
 import React from 'react';
-import './style.scss';
-import Logo from './../../assets/imgs/logo.png';
+import './styles.scss';
+import Logo from './../../assets/graphics/logo.png';
 
-
-// functional component, not a class component(not have lifecycle functions)
 const Header = (props) => {
     return (
         <header data-test="headerComponent">
             <div className="wrap">
                 <div className="logo">
-                    <img data-test="logoIMG" src={Logo} alt="my logo"></img>
+                    <img data-test="logoIMG" src={Logo} alt="Logo" />
                 </div>
             </div>
         </header>

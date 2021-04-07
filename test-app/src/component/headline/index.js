@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Headline extends Component {
+
     constructor(props){
         super(props);
     }
 
-    render() {
+    render(){
+
         const { header, desc } = this.props;
 
         if(!header){
             return null;
         }
+
         return (
             <div data-test="HeadlineComponent">
                 <h1 data-test="header">{header}</h1>
@@ -26,12 +29,13 @@ class Headline extends Component {
 Headline.propTypes = {
     header: PropTypes.string,
     desc: PropTypes.string,
+    // Complex example for working with PropTypes (not used in component)
     tempArr: PropTypes.arrayOf(PropTypes.shape({
         fName: PropTypes.string,
         lName: PropTypes.string,
-        rmail: PropTypes.string,
+        email: PropTypes.string,
         age: PropTypes.number,
-        status: PropTypes.bool
+        onlineStatus: PropTypes.bool
     }))
 }
 
