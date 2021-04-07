@@ -12,9 +12,7 @@ const setUp = (props={}) => {
 describe('Headline Component', () => {
 
     describe('Checking PropTypes', () => {
-
         it('Should not throw a warning', () => {
-
             const expectedProps = { // create props that meets the schema(spec)
                 header: 'Test Header',
                 desc: 'Test Desc',
@@ -28,9 +26,7 @@ describe('Headline Component', () => {
             };
             const propsErr = checkProps(Headline, expectedProps)
             expect(propsErr).toBeUndefined();
-
         });
-
     });
 
     describe('Have props', () => {
