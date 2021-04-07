@@ -19,19 +19,43 @@ const tempArr = [{
   onlineStatus: true
 }];
 
+
+const initialState = {
+  hideBtn: false
+};
+
 class App extends Component {
   constructor(props){
     // console.log(props);
     super(props);
+    this.state = {
+      ...initialState
+    }
     this.fetch = this.fetch.bind(this);
   }
 
-  fetch(){ //dispatch 
+  fetch(){ //dispatched function
     this.props.fetchPosts();
+    this.exampleMethod_updateState(); // update state
+  }
+
+  // create a function that toggle button and test this function =====>>>>>>>>> how to test a function!!!!!!
+  // have an instance of this class App and trigger this function to see if the state is updated(hideBtn changed)
+  // update the state, toggle hideBtn
+  exampleMethod_updateState(){ 
+    const {hideBtn} = this.state;
+    this.setState({
+      hideBtn: !hideBtn
+    });
+  }
+
+  exampleMethod_returnsAValue(number){
+    return number+1;
   }
 
   render() {
     const {posts} = this.props;
+    const {hideBtn} = this.state;
 
     const configButton = {
       buttonText: 'get posts',
@@ -43,7 +67,9 @@ class App extends Component {
         <Header />
         <section className="main">
           <Headline header="Posts" desc="Click the button to render posts!" tempArr={tempArr} />
-          <SharedButton {...configButton} />
+          {!hideBtn &&
+            <SharedButton {...configButton} />
+          }
           {posts.length > 0 && // 如果state有posts的话就render listItems
             <div>
               {posts.map((post, index) => {
