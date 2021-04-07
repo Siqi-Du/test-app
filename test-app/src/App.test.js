@@ -44,7 +44,6 @@ describe('App Component', () => {
         const newState = classInstance.state.hideBtn;
         expect(newState).toBe(true); // 因为initialState is false
     });
-
     it('exampleMethod_returnsAValue Method should return value as expected', () => {
         const classInstance = wrapper.instance();
         const newValue = classInstance.exampleMethod_returnsAValue(5);
