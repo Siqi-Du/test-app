@@ -40,7 +40,7 @@ class App extends Component {
   }
 
   // create a function that toggle button and test this function =====>>>>>>>>> how to test a function!!!!!!
-  // have an instance of this class App and trigger this function to see if the state is updated(hideBtn changed)
+  
   // update the state, toggle hideBtn
   exampleMethod_updateState(){ 
     const {hideBtn} = this.state;
@@ -49,6 +49,7 @@ class App extends Component {
     });
   }
 
+  //increase the number by 1
   exampleMethod_returnsAValue(number){
     return number+1;
   }

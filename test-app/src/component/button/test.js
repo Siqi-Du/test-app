@@ -34,7 +34,7 @@ describe('SharedButton Component', () =>{
             expect(button.length).toBe(1);
         });
 
-        //// we simulate a click event, then ckeck the # of calls to emitEvent() should be 1
+        //// we simulate a click event, then check the # of calls to emitEvent() should be 1
         it('Should emit callback on click event', () => {
             const button = findByTestAtrr(wrapper, "buttonComponent");
             button.simulate('click'); //simulate a click event
