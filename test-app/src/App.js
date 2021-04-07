@@ -21,7 +21,7 @@ const tempArr = [{
 
 class App extends Component {
   constructor(props){
-    console.log(props);
+    // console.log(props);
     super(props);
     this.fetch = this.fetch.bind(this);
   }
@@ -39,12 +39,12 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
+      <div className="App" data-test="appComponent">
         <Header />
         <section className="main">
           <Headline header="Posts" desc="Click the button to render posts!" tempArr={tempArr} />
           <SharedButton {...configButton} />
-          {posts.length > 0 &&
+          {posts.length > 0 && // 如果state有posts的话就render listItems
             <div>
               {posts.map((post, index) => {
                 const {title, body} = post;
@@ -65,13 +65,28 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("in mapStateToProps" + state.posts);
+  // console.log("in mapStateToProps() in App.js" + state.posts);
   return{
     posts: state.posts
   }
 };
 
 export default connect(mapStateToProps, {fetchPosts})(App); //connect(mapStateToProps, mapDispatchToProps)(Component)
+// inside our store, we have posts:[] and fetchPosts:fn()
+// our state is: 
+// { store:
+//   { dispatch: [Function],
+//     subscribe: [Function: subscribe],
+//     getState: [Function: getState],
+//     replaceReducer: [Function: replaceReducer],
+//     [Symbol(observable)]: [Function: observable] 
+//   },
+//  posts:
+//   [ { title: 'Example title 1', body: 'Some text' },
+//     { title: 'Example title 2', body: 'Some text' },
+//     { title: 'Example title 3', body: 'Some text' } ],
+//  fetchPosts: [Function] 
+// }
 
 
 

@@ -4,7 +4,7 @@ export default (state=[], action) => {
     // aciton 有type和payload(new state array)
     switch(action.type){ 
         case types.GET_POST:
-            console.log("in reducer" + action.payload);
+            // console.log("in reducer" + action.payload);
             return action.payload;
         default:
             return state;

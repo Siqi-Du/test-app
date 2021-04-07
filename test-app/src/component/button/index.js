@@ -6,11 +6,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class SharedButton extends Component {
+
     submitEvent(){
         if(this.props.emitEvent){//如果这个emitEvent存在就trigger it
             this.props.emitEvent();
         }
     }
+    
     render(){
         const {buttonText} = this.props;
         return(
